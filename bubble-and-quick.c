@@ -32,11 +32,11 @@ int particionar(Prato pratos[], int baixo, int alto {
     int i = baixo - 1;
     
     for (int j = baixo; j < alto; j++){
-        ir (pratos[j].prioridade > pivo.prioridade ||
+        if (pratos[j].prioridade > pivo.prioridade ||
         	(pratos[j].prioridade == pivo.prioridade && pratos[j].tempo < pivo.tempo)) {
-                i++;
-                trocar(&pratos[i], &pratos[j]);
-            }
+            i++;
+            trocar(&pratos[i], &pratos[j]);
+        }
     }
     trocar(&pratos[i + 1], &pratos[alto]);
     return i + 1;
