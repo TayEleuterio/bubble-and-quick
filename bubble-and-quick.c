@@ -27,7 +27,7 @@ void bubbleSort(Prato pratos[], int n) {
     }
 }
 
-int particionar(Prato pratos[], int baixo, int alto {
+int particionar(Prato pratos[], int baixo, int alto) {
     Prato pivo = pratos[alto];
     int i = baixo - 1;
     
@@ -46,7 +46,7 @@ void quicksort(Prato pratos[], int baixo, int alto) {
     if (baixo < alto) {
         int pi = particionar(pratos, baixo, alto);
         quicksort(pratos, baixo, pi - 1);
-        quicksort(pratos pi + 1, alto);
+        quicksort(pratos, pi + 1, alto);
     }
 }
 
@@ -63,12 +63,14 @@ int main() {
     }
 
     Prato pratosBubble[MAX_PRATOS];
-    memcpy(pratosBubble, pratos, n * sizeof(Prato));
-    bubbleSort(pratosBubble, n);
-
+    for (int i = 0; i < n; i++) {
+        pratosBubble[i] = pratos[i];
+    }
+    
     Prato pratosQuick[MAX_PRATOS];
-    memcpy(pratosQuick, pratos, n * sizeof(Prato));
-    quicksort(pratosQuick, 0, n - 1);
+    for (int i = 0; i < n; i++) {
+        pratosQuick[i] = pratos[i];
+    }
 
     printf("\nResultado Bubble Sort:\n");
     for (int i = 0; i < n; i++) {
