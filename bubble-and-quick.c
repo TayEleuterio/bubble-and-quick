@@ -21,7 +21,7 @@ void bubbleSort(Prato pratos[], int n) {
         for (int j = 0; j < n - i - 1; j++) {
             if (pratos[j].prioridade < pratos[j + 1].prioridade ||
                 (pratos[j].prioridade == pratos[j + 1].prioridade && pratos[j].tempo > pratos[j + 1].tempo)) {
-                    trocar(&pratos[j], &pratos[j + 1]);
+                trocar(&pratos[j], &pratos[j + 1]);
             }
         }
     }
@@ -57,21 +57,26 @@ int main() {
     printf("Digite o número de pratos: ");
     scanf("%d", &n);
 
+    if (n <= 0 || n > MAX_PRATOS) {
+        printf("Número de pratos inválido!\n");
+        return 1;
+    }
+
     printf("Digite os pratos (prioridade tempo nome):\n");
     for (int i = 0; i < n; i++) {
         scanf("%d %d %s", &pratos[i].prioridade, &pratos[i].tempo, pratos[i].nome);
     }
 
     Prato pratosBubble[MAX_PRATOS];
+     Prato pratosQuick[MAX_PRATOS];
     for (int i = 0; i < n; i++) {
         pratosBubble[i] = pratos[i];
-    }
-    
-    Prato pratosQuick[MAX_PRATOS];
-    for (int i = 0; i < n; i++) {
         pratosQuick[i] = pratos[i];
     }
 
+    bubbleSort(pratosBubble, n);
+    quicksort(pratosQuick, 0, n - 1);
+  
     printf("\nResultado Bubble Sort:\n");
     for (int i = 0; i < n; i++) {
         printf("%s\n", pratosBubble[i].nome);
