@@ -51,9 +51,31 @@ void quicksort(Prato pratos[], int baixo, int alto) {
 }
 
 int main() {
-    int n;
+    int n = 0;
     Prato pratos[MAX_PRATOS];
+    char linha[256]
+    FILE *arquivo;
+    
+    arquivo = fopen("restaurante_pratos.csv", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo csv.\n");
+        return 1;
+    }
+    
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        sscanf(linha, "%d,%d,%50s", &pratos[n].prioridade, &pratos[n].tempo, pratos[n].nome);
+        n++;
+        if (n >= MAX_PRATOS) break;
+    }
+    
+    fclose(arquivo);
+    
+    if (n == 0) {
+        printf("Nenhum dado encontrado no arquivo CSV.\n");
+        return 1;
+    }
 
+//verificar correcoes a partir daqui
     printf("Digite o número de pratos: ");
     scanf("%d", &n);
 
