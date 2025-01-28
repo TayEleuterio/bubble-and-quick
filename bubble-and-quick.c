@@ -51,7 +51,7 @@ void quicksort(Prato pratos[], int baixo, int alto) {
 }
 
 int main() {
-    int n;
+    int n = 0;
     Prato pratos[MAX_PRATOS];
     char linha[256];
     FILE *arquivo;
@@ -63,11 +63,15 @@ int main() {
     }
     
     while (fgets(linha, sizeof(linha), arquivo)) {
-        sscanf(linha, "%d,%d,%50s", &pratos[n].prioridade, &pratos[n].tempo, pratos[n].nome);
-        n++;
-        if (n >= MAX_PRATOS) break;
+       if (sscanf(linha, "%d,%d,%50s", &pratos[n].prioridade, &pratos[n].tempo, pratos[n].nome) != 3) {
+            printf("Erro no formato do arquivo CSV na linha %d.\n", n + 1);
+            fclose(arquivo);
+            return 1;
     }
-    
+    n++;
+    if (n >= MAX_PRATOS) break;
+    }
+        
     fclose(arquivo);
     
     if (n == 0) {
