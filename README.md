@@ -18,7 +18,7 @@ Bubble Sort:
 
 QuickSort:
 
-* Mais eficiente, com complexidade 𝑂(𝑛 log 𝑛) O(nlogn) em média.
+* Mais eficiente, com complexidade 𝑂(𝑛 log 𝑛) em média.
 * Escolha de pivô:
   * O pivô atual é o último elemento do intervalo.
   * Melhorias possíveis: pivô aleatório ou mediana de três para evitar casos extremos.
