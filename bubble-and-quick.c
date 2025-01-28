@@ -76,18 +76,18 @@ int main() {
     }
 
 //verificar correcoes a partir daqui
-    printf("Digite o número de pratos: ");
-    scanf("%d", &n);
+//    printf("Digite o número de pratos: ");
+  //  scanf("%d", &n);
 
-    if (n <= 0 || n > MAX_PRATOS) {
-        printf("Número de pratos inválido!\n");
-        return 1;
-    }
+    //if (n <= 0 || n > MAX_PRATOS) {
+      //  printf("Número de pratos inválido!\n");
+        //return 1;
+    //}
 
-    printf("Digite os pratos (prioridade tempo nome):\n");
-    for (int i = 0; i < n; i++) {
-        scanf("%d %d %s", &pratos[i].prioridade, &pratos[i].tempo, pratos[i].nome);
-    }
+    //printf("Digite os pratos (prioridade tempo nome):\n");
+    //for (int i = 0; i < n; i++) {
+        //scanf("%d %d %s", &pratos[i].prioridade, &pratos[i].tempo, pratos[i].nome);
+    //}
 
     Prato pratosBubble[MAX_PRATOS];
      Prato pratosQuick[MAX_PRATOS];
